@@ -1,24 +1,20 @@
-int ledDelay = 10000;
-int redPin = 11;
-int yellowPin = 10;
-int greenPin= 9;
+#define LED 12
+#define BUTTON 2
 
+int val = 0;
 
 void setup() {
-  pinMode(redPin, OUTPUT);
-  pinMode(yellowPin, OUTPUT);
-  pinMode(greenPin, OUTPUT);
+  pinMode(LED, OUTPUT);
+  pinMode(BUTTON, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(redPin, HIGH);
-  delay(ledDelay);
+  val = digitalRead(BUTTON);
 
-  digitalWrite(yellowPin, HIGH);
-  delay(2000);
-  
-  digitalWrite(greenPin, HIGH);
-  digitalWrite(redPin, LOW);
-  digitalWrite(yellowPin, LOw);
-  delay(ledDelay);
+  if (val == HIGH) {
+    digitalWrite(LED, HIGH);
+  } else {
+    digitalWrite(LED, LOW);
+  }
+
 }
