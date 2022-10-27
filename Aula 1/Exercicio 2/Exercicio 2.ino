@@ -1,67 +1,45 @@
-char buffer[18];
-int RedPin = 3;
-int GreenPin = 5;
-int YellowPin = 6;
+#include <MemoryUsage.h>
 
-void setup() {
+void setup()
+{
   Serial.begin(9600);
-  Serial. flush();
-  pinMode(RedPin, OUTPUT);
-  pinMode(GreenPin, OUTPUT);
-  pinMode(YellowPin, OUTPUT);
+  Serial.println(F("Starting state of the memory: "));
+  Serial.println();
+
+  MEMORY_PRINT_START
+  MEMORY_PRINT_HEAPSTART
+  MEMORY_PRINT_HEAPEND
+  MEMORY_PRINT_STACKSTART
+  MEMORY_PRINT_END
+  MEMORY_PRINT_HEAPSIZE
+
+  Serial.println();
+  Serial.println();
+
+  FREERAM_PRINT;
+
+  byte *p = new byte[3000];
+
+  Serial.println();
+  Serial.println();
+
+  Serial.println(F("Ending state of the momory: "));
+  Serial.println();
+
+  MEMORY_PRINT_START
+  MEMORY_PRINT_HEAPSTART
+  MEMORY_PRINT_HEAPEND
+  MEMORY_PRINT_STACKSTART
+  MEMORY_PRINT_END
+  MEMORY_PRINT_HEAPSIZE
+
+  Serial.println();
+  Serial.println();
+
+  FREERAM_PRINT;
 }
 
-void loop () {
-  if(Serial.available() > 0) {
-    int index = 0;
-    delay(100);
-    int numChar = Serial.available();
-    if (numChar > 15) {
-      numChar = 15;
-    }
-    while (numChar--) {
-      buffer[index++] = Serial.read();
-    }
-    splitString(buffer);
-  }
+void loop()
+{
+  
 }
-
-void splitString(char* data) {
- Serial.print("Data entered: ");
- Serial.println(data);
-  char* parameter;
-  parameter = strtok (data, " ,");
-  while(parameter != NULL) {
-    setLED(parameter);
-    parameter = strtok (NULL, " ,");
-  }
-  for (int x = 0; x < 16; x++) {
-    buffer[x] = '\0';
-  }
-  Serial.flush();
-}
-void setLED(char* data) {
-  if((data[0] == 'r') || (data[0] == 'R')) {
-    int Ans = strtol(data + 1, NULL, 10);
-    Ans = constrain(Ans, 0, 255);
-    analogWrite(RedPin, Ans);
-    Serial.print("Red is set to: ");
-    Serial.println(Ans);
-  }
-  if((data[0] == 'g') || (data[0] == 'G')) {
-    int Ans = strtol(data + 1, NULL, 10);
-    Ans = constrain(Ans, 0, 255);
-    analogWrite(GreenPin, Ans);
-    Serial.print("Green is set to: ");
-    Serial.println(Ans);
-  }
-  if((data[0] == 'y') || (data[0] == 'Y')) {
-    int Ans = strtol(data + 1, NULL, 10);
-    Ans = constrain(Ans, 0, 255);
-    analogWrite(YellowPin, Ans);
-    Serial.print("Yellow is set to: ");
-    Serial.println(Ans);
-  }
-}
-
-
