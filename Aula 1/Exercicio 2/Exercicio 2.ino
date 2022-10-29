@@ -1,45 +1,18 @@
-#include <MemoryUsage.h>
+#include<EEPROM.h>
 
 void setup()
 {
-  Serial.begin(9600);
-  Serial.println(F("Starting state of the memory: "));
-  Serial.println();
 
-  MEMORY_PRINT_START
-  MEMORY_PRINT_HEAPSTART
-  MEMORY_PRINT_HEAPEND
-  MEMORY_PRINT_STACKSTART
-  MEMORY_PRINT_END
-  MEMORY_PRINT_HEAPSIZE
+  pinMode(13, OUTPUT);
 
-  Serial.println();
-  Serial.println();
-
-  FREERAM_PRINT;
-
-  byte *p = new byte[3000];
-
-  Serial.println();
-  Serial.println();
-
-  Serial.println(F("Ending state of the momory: "));
-  Serial.println();
-
-  MEMORY_PRINT_START
-  MEMORY_PRINT_HEAPSTART
-  MEMORY_PRINT_HEAPEND
-  MEMORY_PRINT_STACKSTART
-  MEMORY_PRINT_END
-  MEMORY_PRINT_HEAPSIZE
-
-  Serial.println();
-  Serial.println();
-
-  FREERAM_PRINT;
+  for (int i = 0; i < EEPROM.length(); i++)
+  {
+    EEPROM.write(i, 0);
+  }
+  digitalWrite(13, HIGH);
 }
 
-void loop()
+void loop() 
 {
-  
+
 }
