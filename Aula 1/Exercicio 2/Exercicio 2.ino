@@ -1,18 +1,22 @@
-#include<EEPROM.h>
+#include <Stepper.h>
+const int stepsPerRevolution = 200;
+
+Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
+
+int stepCounter = 0;
 
 void setup()
 {
-
-  pinMode(13, OUTPUT);
-
-  for (int i = 0; i < EEPROM.length(); i++)
-  {
-    EEPROM.write(i, 0);
-  }
-  digitalWrite(13, HIGH);
+  
 }
 
-void loop() 
+void loop()
 {
-
+  int sensorReading = analogRead(A0);
+  int motorSpeed = map(sensorReading, 0, 1023, 0, 100);
+  if (motorSpeed > 0 )
+  {
+    myStepper.setSpeed(motorSpeed);
+    myStepper.step(stepsPerRevolution / 100);
+  }
 }
