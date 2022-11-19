@@ -1,0 +1,53 @@
+V e F
+
+Introdução aos sistemas embebidos
+	Definição de sistemas embebidos
+	o que uma operação e tempo real hand or soft
+	requisitos funcionais
+	Slide (15 ao 33) e o (33 ao 45 não sai)
+	performance
+	energia
+	desafios de desenvolvimento
+
+Introdução á eletrónica não sai
+
+Instruction set do Arm
+	pag 3 diferenciar von de hard
+	sic de rosc
+	modelo de programação spcr 4 bits nzsv slide 18 - 19
+	Slide 26
+	assembly de exercicio
+	Arduino mais simples (ligar led ou botao).
+
+CPU Part 1
+	Slide 5
+	Comunicação em serie
+	Slide 9 - 10 não é preciso
+	Mecanismo de Interrupção - Slide 11 até ao fim
+
+CPU Part 2 e memória
+	Segmentação
+	Slide 11,12,13,14 - não sai
+	Ver slide 17
+	Pipline
+	Calcular a performance de um filtro FIR
+	Slide 23
+	Maquina de estagio
+	Slide 28 - não sai
+	Fazer exercicios do final slide 29
+
+Analise de performance
+	Inicial não é importante
+	Apartir do Slide 6
+	Parte do PATH 
+	Slide 8,12 até 15 loop nest não sai, depois disso é perciso considerar
+	Slide 9,10,11 é importante para perceber
+	Distinguir clean box e black box
+
+Multiprocessador
+	Parte Inicial - Pk multiprocessadores, considerar apartir daqui
+	Ver questão acelarador CPU
+	Ver formula do tempo de acelaração (sistema não acelarado e acelarado)
+	Slides de multifred
+	Apartir do Slide 20 é para perceber
+	Ver os 2 exercicios finais
