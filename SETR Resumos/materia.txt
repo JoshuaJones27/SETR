@@ -25,7 +25,7 @@ CPU Part 1
 	Slide 9 - 10 não é preciso
 	Mecanismo de Interrupção - Slide 11 até ao fim
 
-CPU Part 2 e memória
+CPU Part 2 e memória FALTA
 	Segmentação
 	Slide 11,12,13,14 - não sai
 	Ver slide 17
